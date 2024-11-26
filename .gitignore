@@ -1,0 +1,56 @@
+# Django
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.log
+*.pot
+*.mo
+*.so
+*.com
+*.exe
+*.dll
+*.pdb
+*.cache
+*.egg-info/
+dist/
+build/
+db_sqlite3/
+env/
+
+
+# React / Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+build/
+
+# Vanilla JS / Frontend
+dist/
+*.log
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+/.vscode
+*.swp
+*.swo
+*.swn
+*.bak
+*.bak2
+*.bak3
+*.db
+*.opendb
+*.tmp
+*.vs
+
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
