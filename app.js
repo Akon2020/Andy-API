@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", auth);
-app.use("payment", paimentRoute);
+app.use("/payment", paimentRoute);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

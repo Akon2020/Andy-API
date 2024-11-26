@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PayPal | Testy</title>
+  </head>
+  <body style="display: flex; justify-content: center; align-items: center; height: 90vh;">
+    <script src="https://www.paypal.com/sdk/js?client-id=BAAvSwA-Nex9nVdMWy2dp6GiTVC_HDzicxC4cVRaV5FvYlcZoq_HijEUD_DmVBtVbNUIAuLUjDXxqcuJR0&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
+    <div id="paypal-container-P2BLGDQAEFLHE"></div>
+    <script>
+      paypal
+        .HostedButtons({
+          hostedButtonId: "P2BLGDQAEFLHE",
+        })
+        .render("#paypal-container-P2BLGDQAEFLHE");
+    </script>
+  </body>
+</html>

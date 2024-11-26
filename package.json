@@ -2,10 +2,10 @@
   "name": "andy-api",
   "version": "1.0.0",
   "description": "API pour le paiement avec paypal et la génération des rapports de ventes",
-  "main": "app.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -22,6 +22,7 @@
   "author": "Akonkwa Ushindi",
   "license": "ISC",
   "dependencies": {
+    "@paypal/paypal-server-sdk": "^0.6.0",
     "body-parser": "^1.20.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
