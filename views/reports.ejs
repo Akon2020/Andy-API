@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Rapports</title>
+</head>
+<body>
+  <header>
+    <h1>Génération des Rapports</h1>
+  </header>
+  <main>
+    <form action="/api/admin/reports" method="GET">
+      <label for="startDate">Date de début :</label>
+      <input type="date" name="startDate" required>
+      <label for="endDate">Date de fin :</label>
+      <input type="date" name="endDate" required>
+      <button type="submit">Générer le Rapport</button>
+    </form>
+
+    <h2>Rapports disponibles</h2>
+    <ul>
+      <% reports.forEach(report => { %>
+        <li><a href="/path/to/report/<%= report.filename %>"><%= report.filename %></a></li>
+      <% }) %>
+    </ul>
+  </main>
+</body>
+</html>
