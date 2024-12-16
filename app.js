@@ -7,6 +7,9 @@ import path from "path";
 import db from "./config/db.js";
 import { auth } from "./auth/auth.js";
 import { paimentRoute } from "./routes/paiement.js";
+import authRoutes from "./routes/authRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -30,8 +33,11 @@ app.get("/", (req, res) => {
   return res.send("Hello World");
 });
 
-app.use("/api/auth", auth);
+app.use("/api/admin/auth", auth);
 app.use("/payment", paimentRoute);
+app.use("/api/auth", authRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/admin", adminRoutes)
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

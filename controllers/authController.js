@@ -1,17 +1,15 @@
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 import db from "../config/db.js";
 
-export const renderDashboard = async (req, res) => {
-  const [orders] = await db.query("SELECT COUNT(*) as totalOrders, SUM(total) as totalRevenue FROM orders");
-  const { totalOrders, totalRevenue } = orders[0];
+export const adminLogin = async (req, res) => {
+  const { email, password } = req.body;
+  const [rows] = await db.query("SELECT * FROM admins WHERE email = ?", [email]);
 
-  res.render("index", { totalOrders, totalRevenue });
-};
+  if (rows.length === 0 || !(await bcrypt.compare(password, rows[0].password))) {
+    return res.status(401).json({ message: "Invalid credentials" });
+  }
 
-export const renderReports = async (req, res) => {
-  const [reports] = await db.query("SELECT * FROM reports");
-  res.render("reports", { reports });
-};
-
-export const adminLoginPage = (req, res) => {
-  res.render("login");
+  const token = jwt.sign({ id: rows[0].id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+  res.json({ token });
 };
