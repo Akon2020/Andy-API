@@ -3,6 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+import path from "path";
 import db from "./config/db.js";
 import { auth } from "./auth/auth.js";
 import { paimentRoute } from "./routes/paiement.js";
@@ -20,12 +21,16 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static(path.join(path.resolve(), "public")));
+
+app.set("views engine", "ejs")
+app.set("views", path.join(path.resolve(), "views"))
 
 app.get("/", (req, res) => {
   return res.send("Hello World");
 });
 
-app.use("/auth", auth);
+app.use("/api/auth", auth);
 app.use("/payment", paimentRoute);
 
 const PORT = process.env.PORT || 3001;
